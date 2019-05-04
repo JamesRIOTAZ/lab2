@@ -1,8 +1,10 @@
-package lab_2;
+package com.acme.domain;
+
+import com.acme.utils.MyDate;
 
 public class Order {
 	
-	static double taxRate;
+	public static double taxRate;
 	
 	static
 	{

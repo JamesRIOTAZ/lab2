@@ -1,8 +1,8 @@
-package lab_2;
+package com.acme.utils;
 
 public class MyDate {
 	
-	int day,year,month;
+	public int day,year,month;
 	
 	{
 		day = 1;
