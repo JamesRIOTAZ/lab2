@@ -4,6 +4,12 @@ public class MyDate {
 	
 	int day,year,month;
 	
+	{
+		day = 1;
+		year = 2000;
+		month = 1;
+	}
+	
 	public MyDate() {
 		
 	}
