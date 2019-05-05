@@ -45,4 +45,39 @@ public class Order {
 	public String toString(){
 		return quantity + " ea. " + product + " for " + customer; 
 	}
+	
+	public char jobSize() {
+		if(quantity <= 25)
+			return 'S';
+		else if(quantity >= 26 && quantity <=75)
+			return 'M';
+		else if(quantity > 76 && quantity <=150)
+			return 'L';
+		else
+			return 'X';
+	}
+	
+	public double computeTotal() {
+		return getDiscount() + getTax();
+	}
+	
+	public double getDiscount(){
+		double discountPercentage;
+		switch(jobSize()) {
+		case 'X': discountPercentage = 0.03; break;
+		case 'L': discountPercentage = 0.02; break;
+		case 'M': discountPercentage = 0.01; break;
+		default: discountPercentage = 0.00;
+		}
+		return orderAmount-(orderAmount*discountPercentage);
+	}
+	
+	public double getTax() {
+		if(orderAmount>1500)
+			return 0;
+		else
+			return getDiscount()*taxRate;
+	}
+
 }
+

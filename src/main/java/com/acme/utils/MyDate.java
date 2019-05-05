@@ -27,5 +27,13 @@ public class MyDate {
 		this.month = month;
 		this.year = year;
 	}
+	
+	public static void leapYears() {
+		for(int x=1752; x <= 2020; x++) {
+			if(((x % 4)==0) && (((x % 100)!=0) || ((x % 400)==0))){
+				System.out.println(x);
+			}
+		}
+	}
 
 }
