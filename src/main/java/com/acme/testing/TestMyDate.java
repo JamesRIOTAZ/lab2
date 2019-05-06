@@ -7,9 +7,9 @@ public class TestMyDate{
 		MyDate date1 = new MyDate(11,11,1918);
 		MyDate date2 = new MyDate();
 		MyDate date4 = new MyDate();
-		date2.day = 11;
-		date2.month = 11;
-		date2.year = 1918;
+		date2.setDay(11);
+		date2.setMonth(11);
+		date2.setYear(1918);
 	MyDate date3 = new MyDate();
 	date3.setDate(4,21,1968);
 		String str1 = date1.toString();
@@ -20,5 +20,7 @@ public class TestMyDate{
 	System.out.println(str3);
 	System.out.println(date4.toString());
 //	MyDate.leapYears();
+	date3.setDate(13, 40, -1);
+
 	}
 }
