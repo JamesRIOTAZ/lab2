@@ -1,5 +1,6 @@
 package com.acme.testing;
 
+import com.acme.domain.Service;
 import com.acme.domain.Good.UnitOfMeasureType;
 import com.acme.domain.Order;
 import com.acme.domain.Solid;
@@ -40,9 +41,16 @@ public class TestOrders {
 		System.out.println("The total bill for: " + balloons + " is " + balloons.computeTotal());
 
 		balloons.setQuantity(-200);
-    //    Solid s = ((Solid)anvil.getProduct());
-		System.out.println("The volume of the anvil is: " + anvil.getProduct().volume());
-		System.out.println("The length of the anvil is: " + ((Solid)anvil.getProduct()).getLength());
+		System.out.println("The volume of the anvil is: " + ((Solid)anvil.getProduct()).volume());
+		System.out.println("The length of the anvil is: " + ((Solid) anvil.getProduct()).getLength());
+		
+		MyDate date4 = new MyDate(4,10,2008);
+		Service s3 = new Service("Road Runner Eradication", 14, false);
+		Order birdEradication = new Order(date3, 20000, "Daffy Duck",s3, 1);
+		System.out.println("The total bill for: " + birdEradication + " is "+birdEradication.computeTotal());
+
+
+		
 
 	}
 
