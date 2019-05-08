@@ -1,6 +1,9 @@
 package com.acme.testing;
 
 import com.acme.domain.Service;
+
+import java.time.LocalDate;
+
 import com.acme.domain.Good.UnitOfMeasureType;
 import com.acme.domain.Order;
 import com.acme.domain.Solid;
@@ -33,7 +36,7 @@ public class TestOrders {
 		anvil.computeTax();
 		balloons.computeTax();
 
-		MyDate date3 = new MyDate(5, 20, 2008);
+		MyDate date3 = new MyDate(12, 25, 2019);
 		Order anotherAnvil = new Order(date3, 200, "Road Runner");
 		System.out.println(anotherAnvil);
 
@@ -49,11 +52,32 @@ public class TestOrders {
 		Order birdEradication = new Order(date3, 20000, "Daffy Duck",s3, 1);
 		System.out.println("The total bill for: " + birdEradication + " is "+birdEradication.computeTotal());
 		
+		// Change this date to one that is within the last 15 days of today.
+		LocalDate hammerDate2 = LocalDate.now().plusDays(5);
+		MyDate hammerDate = new MyDate( hammerDate2.getMonthValue(), hammerDate2.getDayOfMonth(), hammerDate2.getYear() );
+		Solid hammerType = new Solid( "Acme Hammer", 281, 0.3, UnitOfMeasureType.CUBIC_METER, false, 100, 0.25, 0.3 );
+		Order hammer = new Order( hammerDate, 10.00, "Wile E Coyote", hammerType, 10 );
+		
 	//	anvil.setRushable((date4, amount) -> {amount > 1500;});
-		Order.setRushable((date, amount) -> amount > 1500);
+		Order.setRushable((orderDate, amount) -> {
+			 // Create a LocalDate object for now.
+			 LocalDate now = LocalDate.now();
+			 // Create a LocalDate object for the order date.
+			 LocalDate orderDatePlus30 = LocalDate.of(orderDate.getYear(), orderDate.getMonth(), orderDate.getDay());
+			 // Add one month to the order date.
+			 orderDatePlus30 = orderDatePlus30.plusMonths(1);
+			 // If the current date is after the order date + one month,
+			 // it's rushable.
+			 return now.isAfter(orderDatePlus30); 
+
+			 } );
+
 		
 		System.out.println("Anvil isPriorityOrder: " + anvil.isPriorityOrder()); // true
 		System.out.println("Balloons isPriorityOrder: " +balloons.isPriorityOrder()); // false
+		
+		System.out.println("Anvil isPriorityOrder: " +  anvil.isPriorityOrder());
+		System.out.println("Hammer isPriorityOrder: " +  hammer.isPriorityOrder());
 
 
 		

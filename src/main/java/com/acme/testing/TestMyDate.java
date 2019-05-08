@@ -29,6 +29,12 @@ public class TestMyDate {
 			System.out.println("These two dates are equal");
 		else
 			System.out.println("These two dates are not equal");
+		
+		int a = 10;
+		int z = 2;
+		int answer = a / z;
+		
+		MyDate.listHolidays();
 
 	}
 }
