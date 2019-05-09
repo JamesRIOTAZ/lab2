@@ -42,11 +42,6 @@ public class TestGoods {
 	//	Good.getCatalog().add(toaster);
 	//	Good.getCatalog().add(toaster);
 
-		Iterator<Good> it = Good.getCatalog().iterator();
-		while(it.hasNext()) {
-			if(it.next())
-			System.out.println(it.next());
-		}
 	//	Good.getCatalog().remove();
 
 	//	System.out.println(Good.getCatalog());
