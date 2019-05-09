@@ -80,7 +80,7 @@ public class TestOrders {
 		System.out.println("Hammer isPriorityOrder: " +  hammer.isPriorityOrder());
 
 
-		
+
 
 	}
 

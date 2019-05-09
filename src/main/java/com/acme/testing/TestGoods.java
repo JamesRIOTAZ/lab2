@@ -1,5 +1,7 @@
 package com.acme.testing;
 
+import java.util.Iterator;
+
 import com.acme.domain.Good;
 import com.acme.domain.Liquid;
 import com.acme.domain.Solid;
@@ -31,6 +33,25 @@ public class TestGoods {
 		System.out.println(glue + " can ship via Post office? " + glue.canShipViaPostOffice());
 		System.out.println(anvil + " can ship via Post office? " + anvil.canShipViaPostOffice());
 		System.out.println(paint + " can ship via Post office? " + paint.canShipViaPostOffice());
+		
+		System.out.println(Good.getCatalog());
+		
+	//	Good.getCatalog().remove(1);
+		
+	//	Solid toaster = new Solid("Acme Toaster", 1755, 0.75, UnitOfMeasureType.CUBIC_FEET, false, 1.0, 1.0, 1.0);
+	//	Good.getCatalog().add(toaster);
+	//	Good.getCatalog().add(toaster);
+
+		Iterator<Good> it = Good.getCatalog().iterator();
+		while(it.hasNext()) {
+			if(it.next())
+			System.out.println(it.next());
+		}
+	//	Good.getCatalog().remove();
+
+	//	System.out.println(Good.getCatalog());
+		
+		System.out.println("Flammable products: " + Good.flammablesList());
 
 	}
 }
